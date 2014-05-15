@@ -49,7 +49,7 @@ describe QuestionsController do
        expect(response).to be_redirect
     end
 
-    it " does not save an invalid question" do
+    it "does not save an invalid question" do
       expect{ post :create, question: {}
       }.to_not change { Question.count }
        expect(response).to_not be_redirect
@@ -75,7 +75,7 @@ describe QuestionsController do
       expect(response).to be_redirect
     end
 
-    it " should not update invalid question" do
+    it "should not update invalid question" do
       expect { put :update, id: question.id, question: { title: nil}
       }.to_not change { question.reload.title }
       expect(response).to_not be_redirect
