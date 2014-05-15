@@ -21,12 +21,6 @@ describe "Questions" do
       click_on "Sign Up"
       expect(page).to have_button "Create User"
     end
-
-    it "brings us to Add Question page" do
-      visit root_path
-      click_on "Add Question"
-      expect(page).to have_button "Submit Question"
-    end
   end
 
   context 'question page' do
