@@ -9,6 +9,7 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+    render partial: 'shared/question_form', locals: {question: @question}
   end
 
   def create
@@ -22,6 +23,7 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.find params[:id]
+    render partial: 'shared/question_form', locals: {question: @question}
   end
 
   def update

@@ -1,8 +1,9 @@
-window.onload = function () {
+var initializeMarkdownPreview = function () {
   var view = new View
   var controller = new Controller(view)
   controller.bindEventListeners()
 }
+
 
 var Controller = function (view) {
   this.view = view
