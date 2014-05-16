@@ -3,7 +3,7 @@
   <ul id = 'questions'>
     <% @questions.each do |question| %>
     <li >
-      <h3><%= link_to question.title, question_path(question), :class => 'title'  %></h3>
+      <h3><%= link_to question.title, question_path(question), remote: true, :class => 'title'  %></h3>
       <p class = 'body'><%= question.body %></p>
       <p class = 'user'><%= question.user.username %></p>
       <% if question.user.id == session[:id] %>
@@ -13,4 +13,5 @@
     </li>
     <% end %>
   </ul>
+
 </div>

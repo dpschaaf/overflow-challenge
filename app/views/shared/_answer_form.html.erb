@@ -1,0 +1,12 @@
+<%= form_for @answer, remote: true do |f| %>
+<ul>
+  <li>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </li>
+  <li>
+    <%= f.submit "Submit Answer" %>
+  </li>
+</ul>
+<% end %>
+<div id="markdown" class='body'></div>

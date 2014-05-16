@@ -19,7 +19,7 @@ header a {
 }
 
 h2 {
-  text-align: center;
+  text-align: left;
 }
 
 h3 {
@@ -38,6 +38,11 @@ a:hover {
 li {
   list-style: none;
   padding-bottom: 15px;
+}
+
+textarea {
+  width: 80%;
+  height: 200px;
 }
 
 .change {

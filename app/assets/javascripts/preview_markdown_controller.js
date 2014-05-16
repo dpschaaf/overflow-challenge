@@ -6,12 +6,12 @@ var initializeMarkdownPreview = function () {
 
 var MarkdownPreviewController = function (view) {
   this.view = view
-  this.inputBody = 'question_body'
+  this.inputBody = 'textarea'
 }
 
 MarkdownPreviewController.prototype = {
   bindEventListeners: function () {
-    document.getElementById(this.inputBody).addEventListener('keyup', this.previewText.bind(this))
+    document.querySelector(this.inputBody).addEventListener('keyup', this.previewText.bind(this))
   },
 
   previewText: function () {

@@ -1,11 +1,11 @@
 var NewQuestionPreview = function () {
-  this.view = 'markdown';
-  this.inputBody = 'question_body';
+  this.outputBody = 'markdown';
+  this.inputBody = 'textarea';
 }
 
 NewQuestionPreview.prototype = {
   getWritingAreaText: function () {
-    return document.getElementById(this.inputBody).value
+    return document.querySelector(this.inputBody).value
   },
 
   setPreviewAreaText: function (text) {
@@ -13,7 +13,7 @@ NewQuestionPreview.prototype = {
   },
 
   _previewArea: function () {
-    return document.getElementById(this.view)
+    return document.getElementById(this.outputBody)
   }
 
 };

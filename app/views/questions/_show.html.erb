@@ -1,4 +1,6 @@
-<div>
+<div class = 'last'>
   <h2><%= @question.title %></h2>
   <p class='body'><%= @question.body %></p>
+  <h3>Answer this question:</h3>
+  <%= render 'shared/answer_form' %>
 </div>

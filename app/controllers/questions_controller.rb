@@ -6,6 +6,8 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    @answer = Answer.new
+    render partial: 'show', locals: {question: @question, answer: @answer, user: current_user}
   end
 
   def new
@@ -14,10 +16,8 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    p params
     @question = current_user.questions.new params[:question]
     if @question.save
-      p 'saved'
       render partial: 'show', locals: {question: @question}
     else
       render :new
