@@ -55,6 +55,6 @@ HeaderFormatter.prototype = {
   },
 
   addTags: function (match) {
-    return '<h1>'+match+'</h1>'
+    return '<h3>'+match+'</h3>'
   }
 };
