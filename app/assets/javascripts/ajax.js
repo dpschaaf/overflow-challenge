@@ -2,6 +2,7 @@ window.onload = function () {
   $('header').on('ajax:success', replaceView)
   $('.questions').on('ajax:success', editQuestionView)
   $('.last').on('ajax:success', replaceView)
+  $('.body').each(initializeQuestionsView)
 };
 
 var replaceView = function (e, data) {

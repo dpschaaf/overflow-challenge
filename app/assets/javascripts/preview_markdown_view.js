@@ -19,21 +19,3 @@ NewQuestionPreview.prototype = {
 };
 
 
-var QuestionsView = function () {
-  this.view = '.body';
-}
-
-QuestionsView.prototype = {
-  getWritingAreaText: function () {
-    return document.querySelectorAll(this.inputBody).value
-  },
-
-  setPreviewAreaText: function (text) {
-    this._previewArea().innerHTML = text
-  },
-
-  _previewArea: function () {
-    return document.getElementById(this.view)
-  }
-
-};
