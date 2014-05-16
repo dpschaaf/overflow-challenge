@@ -1,13 +1,15 @@
+var container = '.container'
+
 window.onload = function () {
-  $('header').on('ajax:success', replaceView)
+  $(container).on('ajax:success', replaceView)
   $('.questions').on('ajax:success', editQuestionView)
   // $('.last').on('ajax:success', replaceView)
   formatQuestions()
 };
 
 var replaceView = function (e, data) {
-  $('header').children('div:last').remove()
-  $('header').append(data)
+  $(container).children('div:last').remove()
+  $(container).append(data)
   formatQuestions()
   initializeMarkdownPreview()
 };

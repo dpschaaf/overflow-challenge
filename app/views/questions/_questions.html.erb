@@ -5,6 +5,7 @@
     <li >
       <h3><%= link_to question.title, question_path(question), :class => 'title'  %></h3>
       <p class = 'body'><%= question.body %></p>
+      <p class = 'user'><%= question.user.username %></p>
       <% if question.user.id == session[:id] %>
       <%= link_to 'Delete question', question_path(question), method: :delete, remote: true, :class => 'change'%>
       <%= link_to 'Edit question', edit_question_path(question), remote: true, :class => 'change' %><br>

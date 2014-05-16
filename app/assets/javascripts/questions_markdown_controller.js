@@ -1,6 +1,4 @@
 var initializeQuestionsView = function (i, element) {
-  console.log(element)
-  console.log(i)
   var view = new QuestionsView(element)
   var controller = new QuestionsViewController(view)
   controller.previewText()
