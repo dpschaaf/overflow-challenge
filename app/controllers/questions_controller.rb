@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   def index
     @questions = Question.all
+    render partial: 'questions', locals: {questions: @questions}
   end
 
   def show
@@ -9,13 +10,15 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-    render partial: 'shared/question_form', locals: {question: @question}
+    render partial: 'new', locals: {question: @question}
   end
 
   def create
+    p params
     @question = current_user.questions.new params[:question]
     if @question.save
-      redirect_to question_path(@question)
+      p 'saved'
+      render partial: 'show', locals: {question: @question}
     else
       render :new
     end
@@ -23,7 +26,7 @@ class QuestionsController < ApplicationController
 
   def edit
     @question = Question.find params[:id]
-    render partial: 'shared/question_form', locals: {question: @question}
+    render partial: 'edit', locals: {question: @question}
   end
 
   def update
@@ -37,7 +40,8 @@ class QuestionsController < ApplicationController
 
   def destroy
     Question.find(params[:id]).destroy
-    redirect_to questions_path
+    @questions = Question.all
+    render partial: 'questions', locals: {questions: @questions}
   end
 
 end

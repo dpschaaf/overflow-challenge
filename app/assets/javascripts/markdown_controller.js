@@ -1,17 +1,16 @@
+//Add and Edit Question Preview
 var initializeMarkdownPreview = function () {
-  var view = new View
-  var controller = new Controller(view)
+  var view = new NewQuestionPreview
+  var controller = new MarkdownPreviewController(view)
   controller.bindEventListeners()
 }
 
-
-var Controller = function (view) {
+var MarkdownPreviewController = function (view) {
   this.view = view
   this.inputBody = 'question_body'
-
 }
 
-Controller.prototype = {
+MarkdownPreviewController.prototype = {
   bindEventListeners: function () {
     document.getElementById(this.inputBody).addEventListener('keyup', this.previewText.bind(this))
   },
@@ -24,8 +23,22 @@ Controller.prototype = {
   }
 };
 
+var initializeQuestionsView = function () {
+  var view = new QuestionsView
+  var controller = new MarkdownPreviewController(view)
+  controller.bindEventListeners()
+}
 
-// retrieve text form the view
-// send it to the model for formatting
-// recieve formatted text form the model
-// return formatted text to the view
+var QuestionsViewController = function (view) {
+  this.view = view
+  this.inputBody = 'question_body'
+}
+
+QuestionsViewController.prototype = {
+  previewText: function () {
+    var userText = this.view.getWritingAreaText()
+    var formatter = new TextFormatter(userText)
+    var previewText = formatter.format()
+    this.view.setPreviewAreaText(previewText)
+  }
+};

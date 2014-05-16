@@ -1,11 +1,18 @@
 window.onload = function () {
-  $('header').on('ajax:success', newQuestionView)
-  $('.questions').on('ajax:success', newQuestionView)
+  $('header').on('ajax:success', replaceView)
+  $('.questions').on('ajax:success', editQuestionView)
+  $('.last').on('ajax:success', replaceView)
 };
 
-var newQuestionView = function (e, data) {
-  console.log($(this))
-  $(this).append(data)
+var replaceView = function (e, data) {
+  $('header').children('div:last').remove()
+  $('header').append(data)
+  initializeMarkdownPreview()
+  initializeQuestionsView()
+};
+
+var editQuestionView = function (e, data) {
+  $(this).parent().append(data)
   initializeMarkdownPreview()
 };
 

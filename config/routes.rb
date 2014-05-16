@@ -1,5 +1,5 @@
 DbcOverflow::Application.routes.draw do
-  root :to => 'questions#index'
+  root :to => 'pages#home'
 
   resources :users
   resources :questions
