@@ -16,7 +16,7 @@ describe "Questions" do
       stub_current_user(user)
     end
 
-    it "brings us to a sign up page when we click sign p" do
+    it "brings us to a sign up page when we click sign up" do
       visit root_path
       click_on "Sign Up"
       expect(page).to have_button "Create User"

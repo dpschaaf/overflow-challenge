@@ -1,12 +1,12 @@
 class AnswersController < ApplicationController
 
   def new
-    @answer = Answer.new
+    @answerable = Answer.new
   end
 
   def create
     p params
-    @answer = Anser.create
+    @answer = Answer.create params[:answer]
   end
 
 

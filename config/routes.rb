@@ -14,13 +14,13 @@ DbcOverflow::Application.routes.draw do
 
   resources :comments do
     resources :questions do
-      resources :users
+      resources :users, only: [:new, :create]
     end
   end
 
   resources :answers do
     resources :questions do
-      resources :users
+      resources :users, only: [:new, :create]
     end
   end
 

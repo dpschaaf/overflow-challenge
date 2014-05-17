@@ -2,5 +2,17 @@
   <h2><%= @question.title %></h2>
   <p class='body'><%= @question.body %></p>
   <h3>Answer this question:</h3>
-  <%= render 'shared/answer_form' %>
+  <%= form_for @answer, remote: true do |f| %>
+  <ul>
+    <li>
+      <%= f.hidden_field :question, value: @question.id %>
+      <%= f.hidden_field :user, value: current_user.id %>
+      <%= f.text_area :body %>
+    </li>
+    <li>
+      <%= f.submit "Submit Answer" %>
+    </li>
+  </ul>
+  <% end %>
+  <div id="markdown" class='body'></div>
 </div>
